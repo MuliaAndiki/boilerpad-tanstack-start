@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "boilerpad-tanstack-start-dev",
+  "compatibility_date": "2025-09-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry",
+  // Wrangler does NOT inherit `vars` into named environments; each env below
+  // redefines everything it needs. Build with CLOUDFLARE_ENV=<env> to select one.
+  // Client-side VITE_* values are baked in at build time from .env.<mode>.
+  "vars": { "APP_ENV": "development" },
+  "env": {
+    "staging": {
+      "name": "boilerpad-tanstack-start-staging",
+      "vars": { "APP_ENV": "staging" },
+    },
+    "production": {
+      "name": "boilerpad-tanstack-start",
+      "vars": { "APP_ENV": "production" },
+    },
+  },
+}
